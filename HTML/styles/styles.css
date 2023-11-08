@@ -10,14 +10,49 @@ body {
     height: 100vh;
 }
 
+.userIcon{
+   justify-content: space-between;
+   align-items: center;
+   display: flex;
+    width: 100%;
+}
+#configuracao{
+    margin-top: -595px;
+    position: fixed;
+    left: 95%;
+}
+#interrogacao{
+    margin-top: 610px;
+    position: fixed;
+    left: 95%;
+}
+.botoes{
+    display: flex;
+    background-color: transparent;
+    border: none;
+    flex-direction: column;
+    align-content: center;
+    gap: 50%;
+    margin-top: 20px; 
+}
+.container-Principal{
+    width: 250px;
+    height: 500px;
+    padding: 55px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    animation: fadeIn 1s ease;
+}
+
 .container {
-    
     max-width: 400px;
     padding: 55px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     background-color: #ffffff;
     animation: fadeIn 1s ease;
+    
 }
 
 @keyframes fadeIn {
