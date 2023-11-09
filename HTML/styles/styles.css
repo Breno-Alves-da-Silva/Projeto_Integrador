@@ -125,3 +125,18 @@ input[type="text"], input[type="password"] {
     cursor: pointer;
     transition: background-color 0.2s ease;
 }
+.texts{
+    text-align: center;
+    border: none;
+}
+#backArrow{
+    position: absolute;
+    margin-top: -610px;
+    left: 20px;
+}
+p{
+    font-family: 'Roboto', sans-serif;
+    
+    font-size: large;
+
+}
