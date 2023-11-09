@@ -10,36 +10,50 @@ body {
     height: 100vh;
 }
 
-.userIcon{
-   justify-content: space-between;
-   align-items: center;
-   display: flex;
+.userIcon {
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
     width: 100%;
 }
-#configuracao{
+
+#configuracao {
     margin-top: -595px;
     position: fixed;
     left: 95%;
 }
-.interrogacao{
+
+.display {
+    display: flex;
+}
+
+.interrogacao {
     display: flex;
     margin-top: 150px;
     justify-content: flex-end;
     width: 100%;
     align-items: center;
 }
+.perfil{
+   align-items: center;
+   width: 100%;
+   display: flex;
+   margin-left: 72px;
+}
+#perfil{
+    margin-top: -50px;
+}
+
 .botoes {
     padding-top: 30%;
     display: flex;
     flex-direction: column;
     background-color: transparent;
     border: none;
-     
-
-    
 }
 
-.container-Principal{
+
+.container-Principal {
     width: 250px;
     height: 500px;
     padding: 55px;
@@ -55,7 +69,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     background-color: #ffffff;
-    animation: fadeIn 1s ease; 
+    animation: fadeIn 1s ease;
 }
 
 @keyframes fadeIn {
@@ -68,7 +82,7 @@ body {
     }
 }
 
-.volta{
+.volta {
     margin-left: -65%;
     margin-top: -90%;
     display: inline;
@@ -81,6 +95,7 @@ body {
     cursor: pointer;
     transition: background-color 0.2s ease;
 }
+
 .btn {
     padding: 10px 20px;
     font-size: 16px;
@@ -98,7 +113,8 @@ body {
     margin-top: 20px;
 }
 
-input[type="text"], input[type="password"] {
+input[type="text"],
+input[type="password"] {
     padding: 10px;
     width: 100%;
     border: 1px solid #ccc;
@@ -125,18 +141,21 @@ input[type="text"], input[type="password"] {
     cursor: pointer;
     transition: background-color 0.2s ease;
 }
-.texts{
+
+.texts {
     text-align: center;
     border: none;
 }
-#backArrow{
+
+#backArrow {
     position: absolute;
     margin-top: -610px;
     left: 20px;
 }
-p{
+
+p {
     font-family: 'Roboto', sans-serif;
-    
+
     font-size: large;
 
 }
