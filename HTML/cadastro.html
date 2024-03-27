@@ -1,52 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Cadastro</title>
-    <style></style>
-    <script src="/styles/styles.css"></script>
-    <link rel="stylesheet" href="styles/styles.css" />
-  </head>
 
-  <body>
-    <div class="container">
-      <div class="faixa">
-        <h2>Cadastrar</h2>
-      </div>
-      <form>
-        <label for="nome">Nome:</label><br />
-        <input type="text" id="nome" name="nome" /><br /><br />
-        <label for="Idade">Idade:</label><br />
-        <input type="text" id="idade" name="idade" /><br /><br />
-        <label for="email">Email:</label><br />
-        <input type="text" id="email" name="email" /><br /><br />
-        <label for="tipoDaltonismo">Tipo de daltonismo:</label><br />
-        <input
-          type="text"
-          id="tipoDaltonismo"
-          name="tipoDaltonismo"
-        /><br /><br />
-        <label for="senha">Senha:</label><br />
-        <input
-          type="password"
-          class="senhas"
-          id="senha"
-          name="senha"
-        /><br /><br/>
-      </form>
-      <div class="botoes">
-        <button
-          class="button" 
-          onclick="window.location.href='/index.html'"
-        >
-          Cadastrar
-        </button>
-        <button
-          class="button"
-          onclick="window.location.href='/index.html'"
-        >
-          Voltar
-        </button>
-      </div>
+<head>
+  <title>Cadastro</title>
+  <style></style>
+  <script src="/styles/styles.css"></script>
+  <link rel="stylesheet" href="styles/styles.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="faixa">
+      <h2>Cadastrar</h2>
     </div>
-  </body>
+    <form>
+      <label for="nome">Nome:</label><br />
+      <input type="text" id="nome" required /><br /><br />
+
+      <label for="Idade">Idade:</label><br />
+      <input type="text" id="idade" required /><br /><br />
+
+      <label for="email">Email:</label><br />
+      <input type="text" id="email" required /><br /><br />
+
+      <label for="tipoDaltonismo">Tipo de daltonismo:</label><br />
+      <input type="text" id="tipoDaltonismo" required /><br /><br />
+
+      <label for="senha">Senha:</label><br />
+      <input type="password" class="senhas" id="senha" required/><br /><br />
+
+    </form>
+    <div class="botoes">
+      <button type="submit" class="button" onclick="window.location.href='/index.html'">
+        Cadastrar
+      </button>
+
+      <button class="button" onclick="window.location.href='/index.html'">
+        Voltar
+      </button>
+      
+    </div>
+  </div>
+</body>
+
 </html>
