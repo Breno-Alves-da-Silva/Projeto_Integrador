@@ -18,6 +18,7 @@ function getColorFromVideo() {
     const canvas = document.getElementById('canvas');
     const context = canvas.getContext('2d');
     const colorDisplay = document.getElementById('color');
+    const colorSquare = document.getElementById('colorSquare');
 
     // Desenhar o vídeo no canvas
     context.drawImage(video, 0, 0, canvas.width, canvas.height);
@@ -38,7 +39,7 @@ function getColorFromVideo() {
 
     // Exibir a cor detectada
     colorDisplay.textContent = colorName;
-    colorDisplay.style.backgroundColor = color;
+    colorSquare.style.backgroundColor = color;
 }
 
 function getColorName(r, g, b) {
