@@ -2,17 +2,17 @@
 <html>
 <head>
     <title>Reconhecimento de Cor com a Câmera</title>
-    <script src="./cameraScript.js"></script>
+    <script src="./cameraScript.js" defer></script>
     <link rel="stylesheet" href="styles/styles.css" />
 </head>
 <body>
     <div class="container-camera">
-    <div class="userIcon">
-        <img src="./images/Flecha de volta.png" height="60px" onclick="window.location.href='./telaPrincipal.html'"/>
-      </div>
-    <video id="video" width="640" height="480" autoplay></video>
-    <canvas id="canvas" width="640" height="480" style="display: none;"></canvas>
-    <p>Cor detectada: <span id="color"></span></p>
+        <div class="userIcon">
+            <img src="./images/Flecha de volta.png" height="60px" onclick="window.location.href='./telaPrincipal.html'"/>
+        </div>
+        <video id="video" width="640" height="480" autoplay></video>
+        <canvas id="canvas" width="640" height="480" style="display: none;"></canvas>
+        <p>Cor detectada: <span id="color"></span></p>
     </div>
 </body>
 </html>
