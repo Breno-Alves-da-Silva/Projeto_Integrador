@@ -8,15 +8,69 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow: hidden;
 }
 
 .userIcon {
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    display: flex;
     width: 100%;
+    margin-bottom: 20px;
 }
 
+.container-camera {
+    width: 90%;
+    max-width: 720px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    animation: fadeIn 1s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+video {
+    width: 100%;
+    max-width: 640px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-size: large;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#color {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#colorSquare {
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Outros estilos existentes */
 #configuracao {
     margin-top: -595px;
     position: fixed;
@@ -34,13 +88,15 @@ body {
     width: 100%;
     align-items: center;
 }
-.perfil{
-   align-items: center;
-   width: 100%;
-   display: flex;
-   margin-left: 72px;
+
+.perfil {
+    align-items: center;
+    width: 100%;
+    display: flex;
+    margin-left: 72px;
 }
-#perfil{
+
+#perfil {
     margin-top: -50px;
 }
 
@@ -51,7 +107,6 @@ body {
     background-color: transparent;
     border: none;
 }
-
 
 .container-Principal {
     width: 250px;
@@ -70,16 +125,6 @@ body {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     background-color: #ffffff;
     animation: fadeIn 1s ease;
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
 }
 
 .volta {
@@ -104,13 +149,6 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
-
-.botoes {
-    background-color: transparent;
-    border: none;
-    text-align: center;
-    margin-top: 20px;
 }
 
 input[type="text"],
@@ -142,7 +180,7 @@ input[type="password"] {
     transition: background-color 0.2s ease;
 }
 
-#btnUpload{
+#btnUpload {
     display: inline;
     padding: 10px 20px;
     font-size: 18px;
@@ -165,9 +203,45 @@ input[type="password"] {
     left: 20px;
 }
 
-p {
-    font-family: 'Roboto', sans-serif;
+/* Media Queries */
+@media (max-width: 768px) {
+    .container-camera {
+        width: 95%;
+        padding: 10px;
+    }
 
-    font-size: large;
+    video {
+        max-width: 100%;
+    }
 
+    p {
+        font-size: medium;
+        flex-direction: column;
+    }
+
+    #colorSquare {
+        width: 15px;
+        height: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container-camera {
+        width: 100%;
+        padding: 10px;
+    }
+
+    video {
+        width: 100%;
+    }
+
+    p {
+        font-size: small;
+        flex-direction: column;
+    }
+
+    #colorSquare {
+        width: 10px;
+        height: 10px;
+    }
 }
