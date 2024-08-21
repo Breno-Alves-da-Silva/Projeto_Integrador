@@ -1,40 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <title>Login</title>
-    <style></style>
-    <script src="/styles/styles.css"></script>
     <link rel="stylesheet" href="styles/styles.css" />
-  </head>
-
-  <body>
+</head>
+<body>
     <div class="container">
-      <div class="faixa">
-        <img
-          width="250"
-          height="250"
-          src="/images/Logo figma.png"
-          alt="Logo"
-        />
-        <h2>Login</h2>
-      </div>
-      <form>
-        <label for="email">Email:</label><br />
-        <input type="text" id="email" name="email" /><br /><br />
-        <label for="senha">Senha:</label><br />
-        <input
-          type="password"
-          class="senhas"
-          id="senha"
-          name="senha"
-        /><br /><br />
-      </form>
-      <div class="botoes">
-        <button class="button"  onclick="window.location.href='/cadastro.html'",>Cadastrar</button>
-        <button class="button" onclick="window.location.href='/telaPrincipal.html'">
-          Login
-        </button>
-      </div>
+        <div class="faixa">
+            <img width="250" height="250" src="./images/LogoFigma.png" alt="Logo" />
+            <h2>Login</h2>
+        </div>
+        <form id="loginForm">
+            <div>
+                <label class="block text-gray-700">Email: </label>
+                <input type="text" id="loginEmail" class="w-full px-3 py-2 border rounded-lg" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700">Senha: </label>
+                <input type="password" id="loginPassword" class="w-full px-3 py-2 border rounded-lg" required>
+            </div>
+            <div class="button-container">
+                <button type="submit" class="button" onclick="window.location.href='telaPrincipal.html'">Login</button>
+                <button type="button" class="button" onclick="window.location.href='cadastro.html'">Cadastrar</button>
+            </div>
+        </form>
     </div>
-  </body>
+    <script src="script.js"></script>
+</body>
 </html>

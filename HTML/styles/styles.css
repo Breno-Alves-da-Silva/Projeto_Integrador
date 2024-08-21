@@ -34,13 +34,15 @@ body {
     width: 100%;
     align-items: center;
 }
-.perfil{
-   align-items: center;
-   width: 100%;
-   display: flex;
-   margin-left: 72px;
+
+.perfil {
+    align-items: center;
+    width: 100%;
+    display: flex;
+    margin-left: 72px;
 }
-#perfil{
+
+#perfil {
     margin-top: -50px;
 }
 
@@ -113,6 +115,29 @@ body {
     margin-top: 20px;
 }
 
+select {
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    margin-bottom: 10px;
+}
+.avatar {
+    width: 128px; /* Tamanho do avatar */
+    height: 128px; 
+    border-radius: 50%; /* Para torná-lo circular */
+    object-fit: cover; /* Ajuste a imagem ao círculo */
+    margin: 0 auto; /* Centraliza o avatar horizontalmente */
+    display: block;
+  }
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
 input[type="text"],
 input[type="password"] {
     padding: 10px;
@@ -131,6 +156,7 @@ input[type="password"] {
 }
 
 .button {
+    margin-right: 4%;
     display: inline;
     padding: 10px 20px;
     font-size: 18px;
@@ -142,7 +168,7 @@ input[type="password"] {
     transition: background-color 0.2s ease;
 }
 
-#btnUpload{
+#btnUpload {
     display: inline;
     padding: 10px 20px;
     font-size: 18px;
