@@ -1,8 +1,14 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+session_start(); // Iniciar a sessão
+
 $servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "your_database_name";
+$username = "tdssl222n_brenoalves"; // Nome de usuário do banco de dados
+$password = "BvBSIin47NWvBcR"; // Senha do banco de dados
+$dbname = "tdssl222n_brenoalves";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -36,6 +42,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $result = $stmt->get_result();
 
         if ($result->num_rows > 0) {
+            $user = $result->fetch_assoc();
+            $_SESSION['user_id'] = $user['id']; // Armazena o ID do usuário na sessão
+            $_SESSION['email'] = $user['email']; // Armazena o email do usuário na sessão
             echo "success";
         } else {
             echo "error";
@@ -47,15 +56,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $nome = $_POST['nome'];
         $idade = $_POST['idade'];
         $email = $_POST['email'];
-        $daltonismo = $_POST['daltonismo'];
+        $tipoDaltonismo = $_POST['tipoDaltonismo'];
         $senha = $_POST['senha'];
 
         if (checkUserExists($email, $conn)) {
             echo "exists";
         } else {
-            $sql = "INSERT INTO Reconhecimento (nome, idade, email, daltonismo, senha) VALUES (?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO Reconhecimento (nome, idade, email, tipoDaltonismo, senha) VALUES (?, ?, ?, ?, ?)";
             $stmt = $conn->prepare($sql);
-            $stmt->bind_param("sisss", $nome, $idade, $email, $daltonismo, $senha);
+            $stmt->bind_param("sisss", $nome, $idade, $email, $tipoDaltonismo, $senha);
             if ($stmt->execute()) {
                 echo "success";
             } else {
@@ -64,33 +73,70 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
+    // Recuperar detalhes do usuário para o perfil
+    elseif ($action == "getUserDetails") {
+        if (!isset($_SESSION['user_id'])) {
+            echo json_encode(["error" => "Usuário não autenticado"]);
+            exit;
+        }
+
+        $user_id = $_SESSION['user_id'];
+
+        $sql = "SELECT nome, idade, email, tipoDaltonismo FROM Reconhecimento WHERE id=?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $user_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $user = $result->fetch_assoc();
+
+        if ($user) {
+            echo json_encode($user);
+        } else {
+            echo json_encode(["error" => "Usuário não encontrado"]);
+        }
+        exit;
+    }
+
     // Alterar dados
     elseif ($action == "update") {
+        if (!isset($_SESSION['user_id'])) {
+            echo "Usuário não autenticado";
+            exit;
+        }
+
         $nome = $_POST['nome'];
         $idade = $_POST['idade'];
-        $email = $_POST['email'];
-        $daltonismo = $_POST['daltonismo'];
+        $email = $_POST['email']; // Esse campo pode ser desnecessário, pois o email não é usado na consulta
+        $tipoDaltonismo = $_POST['tipoDaltonismo'];
         $senha = $_POST['senha'];
+        $user_id = $_SESSION['user_id'];
 
-        $sql = "UPDATE Reconhecimento SET nome=?, idade=?, daltonismo=?, senha=? WHERE email=?";
+        $sql = "UPDATE Reconhecimento SET nome=?, idade=?, tipoDaltonismo=?, senha=? WHERE id=?";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("sisss", $nome, $idade, $daltonismo, $senha, $email);
+        $stmt->bind_param("sissi", $nome, $idade, $tipoDaltonismo, $senha, $user_id);
+
         if ($stmt->execute()) {
             echo "success";
         } else {
-            echo "error";
+            echo "error: " . $stmt->error;
         }
     }
 
     // Deletar usuário
     elseif ($action == "delete") {
-        $email = $_POST['email'];
+        if (!isset($_SESSION['user_id'])) {
+            echo "Usuário não autenticado";
+            exit;
+        }
 
-        $sql = "DELETE FROM Reconhecimento WHERE email=?";
+        $user_id = $_SESSION['user_id'];
+
+        $sql = "DELETE FROM Reconhecimento WHERE id=?";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("s", $email);
+        $stmt->bind_param("i", $user_id);
         if ($stmt->execute()) {
             echo "success";
+            session_destroy(); // Destruir a sessão após a exclusão do usuário
         } else {
             echo "error";
         }
