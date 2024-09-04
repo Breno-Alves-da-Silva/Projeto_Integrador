@@ -40,6 +40,8 @@ function getColorFromVideo() {
     // Exibir a cor detectada
     colorDisplay.textContent = colorName;
     colorSquare.style.backgroundColor = color;
+    colorSquare.style.width = "50px"
+    colorSquare.style.height = "50px"
 }
 
 function getColorName(r, g, b) {
@@ -77,8 +79,8 @@ function getColorName(r, g, b) {
             closestColor = color.name;
         }
     });
-
     return closestColor;
+
 }
 
 // Iniciar a câmera ao carregar a página

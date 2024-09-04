@@ -48,7 +48,6 @@ document.addEventListener("DOMContentLoaded", function() {
             sendRequest("register", { nome, idade, email, tipoDaltonismo, senha }, function(data) {
                 if (data === "success") {
                     alert("Cadastro realizado com sucesso!");
-                    window.location.href = 'index.html';
                 } else if (data === "exists") {
                     alert("Usuário já cadastrado!");
                 } else {
@@ -108,14 +107,14 @@ document.addEventListener("DOMContentLoaded", function() {
             const nome = document.getElementById("updateUsername").value;
             const idade = document.getElementById("updateAge").value;
             const email = document.getElementById("updateEmail").value;
-            const daltonismo = document.getElementById("updateColorBlindnessType").value;
+            const tipoDaltonismo = document.getElementById("updateColorBlindnessType").value;
             const senha = document.getElementById("updatePassword").value;
 
-            sendRequest("update", { nome, idade, email, daltonismo, senha }, function(data) {
+            sendRequest("update", { nome, idade, email, tipoDaltonismo, senha }, function(data) {
                 if (data === "success") {
                     alert("Dados alterados com sucesso!");
                     window.location.href = 'perfil.html';
-                } else {
+                } else {    
                     alert("Erro ao alterar os dados!");
                 }
             });

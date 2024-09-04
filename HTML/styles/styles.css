@@ -179,7 +179,11 @@ input[type="password"] {
     cursor: pointer;
     transition: background-color 0.2s ease;
 }
+.flechaCamera{
+    display: flex;
+ 
 
+}
 .texts {
     text-align: center;
     border: none;

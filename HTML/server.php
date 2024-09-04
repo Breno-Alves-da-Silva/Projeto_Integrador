@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: text/html; charset=UTF-8');
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -64,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             $sql = "INSERT INTO Reconhecimento (nome, idade, email, tipoDaltonismo, senha) VALUES (?, ?, ?, ?, ?)";
             $stmt = $conn->prepare($sql);
-            $stmt->bind_param("sisss", $nome, $idade, $email, $tipoDaltonismo, $senha);
+            $stmt->bind_param("sssss", $nome, $idade, $email, $tipoDaltonismo, $senha);
             if ($stmt->execute()) {
                 echo "success";
             } else {
@@ -106,14 +107,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $nome = $_POST['nome'];
         $idade = $_POST['idade'];
-        $email = $_POST['email']; // Esse campo pode ser desnecessário, pois o email não é usado na consulta
+        $email = $_POST['email'];
         $tipoDaltonismo = $_POST['tipoDaltonismo'];
         $senha = $_POST['senha'];
         $user_id = $_SESSION['user_id'];
 
-        $sql = "UPDATE Reconhecimento SET nome=?, idade=?, tipoDaltonismo=?, senha=? WHERE id=?";
+        $sql = "UPDATE Reconhecimento SET nome=?, idade=?, email=?, tipoDaltonismo=?, senha=? WHERE id=?";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("sissi", $nome, $idade, $tipoDaltonismo, $senha, $user_id);
+        $stmt->bind_param("sssssi", $nome, $idade, $email, $tipoDaltonismo, $senha, $user_id);
 
         if ($stmt->execute()) {
             echo "success";

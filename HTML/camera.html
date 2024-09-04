@@ -1,19 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <meta charset="UTF-8">
     <title>Reconhecimento de Cor com a Câmera</title>
     <script src="./cameraScript.js" defer></script>
     <link rel="stylesheet" href="styles/styles.css" />
 </head>
+
 <body>
-    <div class="container-camera">
-        <div class="userIcon">
-            <img src="./images/Flecha de volta.png" height="60px" onclick="window.location.href='telaPrincipal.html'"/>
+    <div class="container">
+        <div class="flechaCamera">
+                <img src="./images/Flecha de Volta.png" height="50px" width="auto" alt="Voltar" 
+                    onclick="window.location.href='telaPrincipal.html'" />
+            
+            <h2>Reconhecimento de Cor com a Câmera</h2>
         </div>
-        <video id="video" autoplay></video>
-        <canvas id="canvas" style="display: none;"></canvas>
-        <p>Cor detectada: <span id="color"></span> <span id="colorSquare"></span></p>
+
+        <div class="container-camera">
+            <video id="video" autoplay style="width: 100%; border-radius: 10px;"></video>
+            <canvas id="canvas" style="display: none;"></canvas>
+            <div class="texts">
+                <p>Cor detectada: <span id="color" style="font-weight: bold;"></span></p>
+                <div id="colorSquare" style="width: 100px; height: 100px; border: 1px solid #000; margin: 0 auto; border-radius: 10px;"></div>
+            </div>
+        </div>
     </div>
 </body>
+
 </html>
- 
