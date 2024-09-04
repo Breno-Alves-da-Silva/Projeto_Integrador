@@ -1,40 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Login</title>
-    <script src="/styles/styles.css"></script>
-    <link rel="stylesheet" href="styles/styles.css" />
-  </head>
-
-  <body>
-    <div class="container-Principal">
-      <div class="userIcon">
-        <img
-          src="/images/Flecha de volta.png"
-          height="40px"
-          onclick="window.location.href='/telaPrincipal.html'"
-        />
-      </div>
-      <div class="texts" id="ajuda">
-        <h1>Perfil</h1>
-      </div>
-      <div class="perfil">
-        <img
-          src="/images/IconeUsuario.png"
-          height="100px"
-        
-        />
-      </div>
-
-      <div class="botoes" id="perfil">
-        <button class="button">Nome</button>
-        <p></p>
-        <button class="button">Idade</button>
-        <p></p>
-        <button class="button">E-mail</button>
-        <p></p>
-        <button class="button">Tipo de daltonismo</button>
-      </div>
+<head>
+    <title>Perfil do Usuário</title>
+    <link rel="stylesheet" href=".styles/styles.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="faixa">
+            <img id="userAvatar" alt="Avatar" class="avatar">
+        </div>
+        <div id="userDetails">
+            <p><strong>Nome:</strong> <span id="userName"></span></p>
+            <p><strong>Email:</strong> <span id="userEmail"></span></p>
+            <p><strong>Idade:</strong> <span id="userAge"></span></p>
+            <p><strong>Tipo de Daltonismo:</strong> <span id="userDaltonismo"></span></p>
+        </div>
+        <div class="button-container">
+            <button id="deleteUserBtn" class="button">Deletar</button>
+            <button id="updateUserBtn" class="button">Alterar</button>
+        </div>
+        <div class="button-container">
+            <button id="backBtn" class="button" onclick="window.location.href='telaPrincipal.html'">Voltar</button>
+        </div>
     </div>
-  </body>
+    <script src="script.js"></script>
+</body>
 </html>
